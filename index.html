@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #0000FF, #00FFFF);
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0077cc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <input type="text" id="username" placeholder="Tên đăng nhập">
+        <input type="password" id="password" placeholder="Mật khẩu">
+        <button onclick="login()">Đăng nhập</button>
+        <p id="error-msg" style="color:red;"></p>
+        <p>Bạn chưa có tài khoản? <a href="demo.html">Đăng ký ngay</a></p>
+    </div>
+
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            let savedUsername = localStorage.getItem("username");
+            let savedPassword = localStorage.getItem("password");
+
+            if (username === savedUsername && password === savedPassword) {
+                alert("Đăng nhập thành công!");
+                window.location.href = "QLNhanVien.html";
+            } else {
+                document.getElementById("error-msg").innerText = "Sai tài khoản hoặc mật khẩu!";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
